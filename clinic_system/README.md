@@ -1,62 +1,112 @@
-# NasiyeClinic - Django Clinic Management System
+# NasiyeClinic – Django Clinic Management System
 
-Project ka waxa uu daboolayaa dhammaan shuruudaha hawlgalka:
-Django, SQLite, Bootstrap 5, iyo Django Template Language (DTL).
+## Project Overview
 
-## Sida loo Shaqaysiiyo (Setup)
+NasiyeClinic is a Clinic Management System developed using Django, Python, SQLite, Bootstrap 5, and Django Template Language (DTL).
 
-1. Samee virtual environment (optional laakiin la talinayaa):
-   ```
-   python -m venv venv
-   source venv/bin/activate      # Windows: venv\Scripts\activate
-   ```
+The system helps manage doctors, patients, appointments, and clinic information through a simple and user-friendly interface.
 
-2. Rakib package-yada loo baahan yahay:
-   ```
-   pip install -r requirements.txt
-   ```
+## Technologies Used
 
-3. Migrations-ka horeba way ku jiraan project-ka (kuma baahnid `makemigrations`). Kaliya samee migrate si loo abuuro database-ka:
-   ```
-   python manage.py migrate
-   ```
+- Python
+- Django
+- SQLite
+- HTML and CSS
+- Bootstrap 5
+- Django Template Language (DTL)
 
-4. Samee superuser si aad admin page uga geli karto:
-   ```
-   python manage.py createsuperuser
-   ```
+## Main Features
 
-5. Bilaw server-ka:
-   ```
-   python manage.py runserver
-   ```
+- Home page with a three-image carousel
+- Doctor management
+- Patient registration and management
+- Appointment scheduling
+- Appointment list
+- Contact page
+- Dashboard with general statistics
+- User login and logout
+- Django Admin Panel
 
-6. Fur browser-kaaga oo tag: `http://127.0.0.1:8000/`
-   Admin page: `http://127.0.0.1:8000/admin/`
+## Project Structure
 
-## Qaab-dhismeedka Project-ka (Apps)
+The project contains the following Django applications:
 
-- **core** — Home page (carousel 3 sawir), Contact page, Register
-- **doctors** — Doctor model + Doctors page
-- **patients** — Patient model (ID, Full Name, Gender, Date of Birth, Phone Number, Email) + Patients page
-- **appointments** — Appointment model + Schedule page (Fullname, Appoint name, Time in, Time out, Date) + Appointment list page
-- **dashboard** — Dashboard page oo tuso tirakoobka guud
+- **core:** Home page, contact page, and registration.
+- **doctors:** Doctor information and management.
+- **patients:** Patient information and management.
+- **appointments:** Appointment scheduling and management.
+- **dashboard:** General clinic statistics.
 
-## Boggagga (6 Pages)
+## Installation and Setup
 
-1. Base page (`templates/base.html`) — dhammaan boggagga way ka dhaxlaan (extends)
-2. Home page — carousel 3 sawir + adeegyada + dhakhaatiirta la soo bandhigay
-3. Schedule page — foomka ballan qabashada
-4. Doctors page — liiska dhakhaatiirta
-5. Appointment list page — liiska ballamaha
-6. Contact page — foomka xiriirka
-7. Dashboard page — (bogga login-ka ah ee tirakoobka)
+### 1. Clone the Repository
 
-## Log In / Log Out
+```bash
+git clone https://github.com/huda-saed/nasiyeclinic-django-project11.git
+cd nasiyeclinic-django-project11
+```
 
-- Isticmaalayaasha waxay ku soo gali karaan `/login/` iyo ka bixi `/logout/`
-- Boggagga sida Dashboard, Patients, Schedule, Appointments waxay u baahan yihiin in user-ku uu login sameeyo (`@login_required`)
+### 2. Create a Virtual Environment
 
-## Admin Page
+```bash
+python -m venv venv
+```
 
-Dhammaan models-ka (Doctor, Patient, Appointment) waxaa lagu diiwaan geliyay `admin.py` faylalka apps-ka, marka waxaad ka maamuli kartaa `/admin/`.
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Apply Database Migrations
+
+```bash
+python manage.py migrate
+```
+
+### 5. Create an Admin Account
+
+```bash
+python manage.py createsuperuser
+```
+
+### 6. Run the Development Server
+
+```bash
+python manage.py runserver
+```
+
+## Access the System
+
+Open your browser and visit:
+
+- **Home Page:** http://127.0.0.1:8000/
+- **Login:** http://127.0.0.1:8000/login/
+- **Admin Panel:** http://127.0.0.1:8000/admin/
+
+## User Authentication
+
+The system supports user authentication through login and logout.
+
+Important pages such as Dashboard, Patients, Schedule, and Appointments require users to log in.
+
+## Admin Panel
+
+The Django Admin Panel allows administrators to manage Doctor, Patient, and Appointment records.
+
+## Database
+
+The project uses SQLite. The database is created locally by running Django migrations.
+
+## Developer
+
+**Project Name:** NasiyeClinic  
+**Project Type:** Clinic Management System  
+**Framework:** Django  
+**Database:** SQLite
