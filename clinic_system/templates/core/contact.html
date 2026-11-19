@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Contact - NasiyeClinic{% endblock %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="fw-bold">Nala Soo Xiriir</h1>
+        <p class="lead">Su'aal ma qabtaa? Fariin noo soo dir waan kula soo xiriiri doonaa.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row g-5">
+        <div class="col-lg-5">
+            <div class="contact-info-card p-4 h-100">
+                <h4 class="fw-bold mb-4">Macluumaadka Xiriirka</h4>
+                <div class="d-flex align-items-start mb-4">
+                    <i class="bi bi-geo-alt-fill text-accent fs-4 me-3"></i>
+                    <div><h6 class="fw-bold mb-1">Cinwaanka</h6><p class="text-muted mb-0">Hargysa, Soomaaliya</p></div>
+                </div>
+                <div class="d-flex align-items-start mb-4">
+                    <i class="bi bi-telephone-fill text-accent fs-4 me-3"></i>
+                    <div><h6 class="fw-bold mb-1">Taleefanka</h6><p class="text-muted mb-0">+252 0636345902</p></div>
+                </div>
+                <div class="d-flex align-items-start mb-4">
+                    <i class="bi bi-envelope-fill text-accent fs-4 me-3"></i>
+                    <div><h6 class="fw-bold mb-1">Iimaylka</h6><p class="text-muted mb-0">info@nasiyeclinic.so</p></div>
+                </div>
+                <div class="d-flex align-items-start">
+                    <i class="bi bi-clock-fill text-accent fs-4 me-3"></i>
+                    <div><h6 class="fw-bold mb-1">Saacadaha Shaqada</h6><p class="text-muted mb-0">Sabti - Khamiis: 8:00 AM - 6:00 PM</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="contact-form-card p-4">
+                <h4 class="fw-bold mb-4">Noo Soo Dir Fariin</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Magaca</label>
+                            <input type="text" class="form-control" placeholder="Magacaaga" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Iimaylka</label>
+                            <input type="email" class="form-control" placeholder="email@example.com" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Mowduuca</label>
+                            <input type="text" class="form-control" placeholder="Mowduuca fariinta" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Fariinta</label>
+                            <textarea class="form-control" rows="5" placeholder="Qor fariintaada halkan..." required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-accent btn-lg px-4">
+                                <i class="bi bi-send-fill me-2"></i>Dir Fariinta
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

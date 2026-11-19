@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block title %}Home - NasiyeClinic{% endblock %}
+
+{% block content %}
+<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80" class="d-block w-100 hero-img" alt="Doctor consulting patient">
+            <div class="carousel-caption">
+                <h1 class="fw-bold">Daryeel Caafimaad oo Aad u Sarreeya</h1>
+                <p class="lead d-none d-md-block">Rugta caafimaadka NasiyeClinic waxay bixisaa adeeg xirfad leh 24/7.</p>
+                <a href="{% url 'schedule' %}" class="btn btn-accent btn-lg mt-2">Ballan Qabso Hadda</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80" class="d-block w-100 hero-img" alt="Medical team">
+            <div class="carousel-caption">
+                <h1 class="fw-bold">Kooxdayada Dhakhaatiirta ee Khibradda leh</h1>
+                <p class="lead d-none d-md-block">Waxaan la shaqaynaa dhakhaatiir kala duwan oo xirfad sare leh.</p>
+                <a href="{% url 'doctors_list' %}" class="btn btn-accent btn-lg mt-2">Ka Aqriso Dhakhaatiirta</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1600&q=80" class="d-block w-100 hero-img" alt="Modern clinic facility">
+            <div class="carousel-caption">
+                <h1 class="fw-bold">Qalab Casri ah, Adeeg Aamin ah</h1>
+                <p class="lead d-none d-md-block">Waxaan isticmaalnaa tignoolajiyad casri ah si aan kuu siino daryeel ugu fiican.</p>
+                <a href="{% url 'contact' %}" class="btn btn-accent btn-lg mt-2">Nala Soo Xiriir</a>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center g-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-people-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_patients }}+</h2>
+                <p class="text-muted mb-0">Bukaan oo Diiwaan gashan</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-person-badge-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_doctors }}+</h2>
+                <p class="text-muted mb-0">Dhakhaatiir Xirfad leh</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-calendar-check-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_appointments }}+</h2>
+                <p class="text-muted mb-0">Ballamo la Qabtay</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold section-title">Adeegyada Aan Bixinno</h2>
+            <p class="text-muted">Waxaan bixinaa adeegyo caafimaad oo dhamaystiran</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center">
+                    <i class="bi bi-calendar2-check display-5 text-accent mb-3"></i>
+                    <h5 class="fw-bold">Ballan Qabashada</h5>
+                    <p class="text-muted small">Si fudud u qabso ballantaada onlayn oo ku raadso dhakhtar kugu habboon.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center">
+                    <i class="bi bi-file-medical display-5 text-accent mb-3"></i>
+                    <h5 class="fw-bold">Diiwaanka Caafimaad</h5>
+                    <p class="text-muted small">Xogta bukaanka ayaa si ammaan ah loo kaydiyaa oo si degdeg ah loo heli karaa.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center">
+                    <i class="bi bi-shield-check display-5 text-accent mb-3"></i>
+                    <h5 class="fw-bold">Daryeel Aamin ah</h5>
+                    <p class="text-muted small">Dhakhaatiirteena waxay ku shaqeeyaan sirtaha iyo daacadnimada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if featured_doctors %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold section-title">Dhakhaatiirta la Soo Bandhigay</h2>
+    </div>
+    <div class="row g-4">
+        {% for doctor in featured_doctors %}
+        <div class="col-md-4">
+            <div class="doctor-card text-center p-4">
+                {% if doctor.image %}
+                <img src="{{ doctor.image.url }}" class="doctor-avatar mb-3" alt="{{ doctor.full_name }}">
+                {% else %}
+                <div class="doctor-avatar-placeholder mb-3 mx-auto">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                {% endif %}
+                <h5 class="fw-bold mb-0">Dr. {{ doctor.full_name }}</h5>
+                <p class="text-accent small">{{ doctor.specialty }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

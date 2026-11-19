@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - NasiyeClinic{% endblock %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="fw-bold">Dashboard</h1>
+        <p class="lead">Ku soo dhowow, {{ user.username }}!</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-people-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_patients }}</h2>
+                <p class="text-muted mb-0">Bukaan Guud</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-person-badge-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_doctors }}</h2>
+                <p class="text-muted mb-0">Dhakhaatiir Guud</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="bi bi-calendar-check-fill display-5 text-accent"></i>
+                <h2 class="fw-bold mt-2">{{ total_appointments }}</h2>
+                <p class="text-muted mb-0">Ballamo Guud</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="table-card p-3">
+                <h5 class="fw-bold mb-3"><i class="bi bi-calendar-check me-2 text-accent"></i>Ballamaha Ugu Dambeeyay</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle mb-0">
+                        <thead><tr><th>Fullname</th><th>Appoint</th><th>Date</th></tr></thead>
+                        <tbody>
+                        {% for appt in recent_appointments %}
+                            <tr><td>{{ appt.full_name }}</td><td>{{ appt.appoint_name }}</td><td>{{ appt.date }}</td></tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-muted text-center">Ma jiro ballamo.</td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="table-card p-3">
+                <h5 class="fw-bold mb-3"><i class="bi bi-people me-2 text-accent"></i>Bukaannada Ugu Dambeeyay</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle mb-0">
+                        <thead><tr><th>Full Name</th><th>Gender</th><th>Phone</th></tr></thead>
+                        <tbody>
+                        {% for p in recent_patients %}
+                            <tr><td>{{ p.full_name }}</td><td>{{ p.get_gender_display }}</td><td>{{ p.phone_number }}</td></tr>
+                        {% empty %}
+                            <tr><td colspan="3" class="text-muted text-center">Ma jiro bukaan.</td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

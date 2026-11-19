@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Schedule Appointment - NasiyeClinic{% endblock %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="fw-bold">Qabso Ballan</h1>
+        <p class="lead">Buuxi foomka hoose si aad ballan ula qabsato dhakhtarkaaga.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="form-card p-4 p-md-5">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">{{ form.full_name.label }}</label>
+                            {{ form.full_name }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">{{ form.appoint_name.label }}</label>
+                            {{ form.appoint_name }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">Doctor</label>
+                            {{ form.doctor }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.time_in.label }}</label>
+                            {{ form.time_in }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.time_out.label }}</label>
+                            {{ form.time_out }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">{{ form.date.label }}</label>
+                            {{ form.date }}
+                        </div>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-accent btn-lg w-100">
+                                <i class="bi bi-calendar-check me-2"></i>Xaqiiji Ballanta
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

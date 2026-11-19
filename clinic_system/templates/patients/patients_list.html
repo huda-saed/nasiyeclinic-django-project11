@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Patients - NasiyeClinic{% endblock %}
+
+{% block content %}
+<div class="page-header text-center">
+    <div class="container">
+        <h1 class="fw-bold">Bukaannada</h1>
+        <p class="lead">Liiska dhammaan bukaannada diiwaan gashan.</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{% url 'patient_add' %}" class="btn btn-accent"><i class="bi bi-plus-lg me-1"></i>Ku Dar Bukaan</a>
+    </div>
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                    <tr>
+                        <td>{{ patient.id }}</td>
+                        <td>{{ patient.full_name }}</td>
+                        <td>{{ patient.get_gender_display }}</td>
+                        <td>{{ patient.date_of_birth }}</td>
+                        <td>{{ patient.phone_number }}</td>
+                        <td>{{ patient.email }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted py-4">Weli bukaan lama diiwaan gelin.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
